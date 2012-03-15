@@ -12,24 +12,30 @@
 static CGFloat InfoViewHeight = 60;
 
 @implementation SlidingInfoView {
-    CGRect _frame;
-    UIView *_sibling;
-    UIView *_infoView;
+    // _measureView is transparent and resized in order to keep track of size changes (rotations)
+    UIView *_measureView, *_sibling, *_infoView;
     UITextView *_textView;
 }
 
-- (CGRect)topSlice:(CGFloat)height {
-    return CGRectMake(_frame.origin.x, _frame.origin.y, _frame.size.width, _frame.size.height-height);
+- (void)setInfoViewOpen:(BOOL)isOpen {
+    CGFloat height = isOpen ? InfoViewHeight : 0;
+    CGRect frame = _measureView.frame;
+    _infoView.frame = CGRectMake(frame.origin.x, frame.origin.y+frame.size.height-height, frame.size.width, height);
 }
 
-- (CGRect)bottomSlice:(CGFloat)height {
-    return CGRectMake(_frame.origin.x, _frame.origin.y+_frame.size.height-height, _frame.size.width, height);
+- (void)setSiblingOpen:(BOOL)isOpen {
+    CGFloat height = isOpen ? InfoViewHeight : 0;
+    CGRect frame = _measureView.frame;
+    _sibling.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height-height);
 }
 
 - (void) generateInfoView {
-    _infoView = [[UIView alloc] initWithFrame:[self bottomSlice:0]];
+    _infoView = [[UIView alloc] init];
+    [self setInfoViewOpen:NO];
     _infoView.backgroundColor = [UIColor grayColor];
+    _infoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     _textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, _infoView.frame.size.width-20, InfoViewHeight)];
+    _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _textView.backgroundColor = [UIColor clearColor];
     _textView.font = [UIFont boldSystemFontOfSize:InfoViewHeight/2];
     [_infoView addSubview:_textView];
@@ -37,15 +43,19 @@ static CGFloat InfoViewHeight = 60;
 
 - (void)setHostView:(UIView *)hostView onSubView:(NSUInteger)index {
     _sibling = [hostView.subviews objectAtIndex:index];
-    _frame = _sibling.frame;
+    _measureView = [[UIView alloc] initWithFrame:_sibling.frame];
+    _measureView.backgroundColor = [UIColor clearColor];
+    _measureView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _measureView.userInteractionEnabled = NO;
+    [hostView addSubview:_measureView];
     [self generateInfoView];
     [hostView addSubview:_infoView];
 }
 
 - (void)setIsOpen:(BOOL)isOpen {
     [UIView beginAnimations:@"ToggleInfoView" context:nil];
-    _sibling.frame = isOpen ? [self topSlice:InfoViewHeight] : _frame;
-    _infoView.frame = isOpen ? [self bottomSlice:InfoViewHeight] : [self bottomSlice:0];
+    [self setSiblingOpen:isOpen];
+    [self setInfoViewOpen:isOpen];
     [UIView commitAnimations];
 }
 

@@ -13,6 +13,10 @@
     NSArray *_items;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     _items = [NSArray arrayWithObjects:@"Ett", @"Två", @"Tre", @"Fyra", @"Fem", @"Sex", nil];
