@@ -10,6 +10,6 @@
 
 - (void)setHostView:(UIView *)hostView onSubView:(NSUInteger)index;
 - (void)displayInfo:(NSString *)info for:(NSTimeInterval)time;
-+ (void)displayInfo:(NSString *)info for:(NSTimeInterval)time;
++ (SlidingInfoView *)sharedSlidingInfoView;
 
 @end

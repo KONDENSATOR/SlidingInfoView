@@ -12,13 +12,9 @@
 @implementation AppDelegate
 
 @synthesize window=_window;
-@synthesize slidingInfoView=_slidingInfoView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    self.slidingInfoView = [[SlidingInfoView alloc] init];
-    [self.slidingInfoView setHostView:self.window.rootViewController.view onSubView:0];
-    
+    [[SlidingInfoView sharedSlidingInfoView] setHostView:self.window.rootViewController.view onSubView:0];
     return YES;
 }
 

@@ -40,7 +40,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [SlidingInfoView displayInfo:[_items objectAtIndex:indexPath.row] for:1];
+    [[SlidingInfoView sharedSlidingInfoView] displayInfo:[_items objectAtIndex:indexPath.row] for:2];
 }
 
 @end

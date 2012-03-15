@@ -10,9 +10,10 @@
 #import "AppDelegate.h"
 
 static CGFloat InfoViewHeight = 60;
+static SlidingInfoView *sharedInstance;
 
 @implementation SlidingInfoView {
-    // _measureView is transparent and resized in order to keep track of size changes (rotations)
+    // _measureView is transparent and resized with sole purpose to keep track of size changes (rotations)
     UIView *_measureView, *_sibling, *_infoView;
     UITextView *_textView;
 }
@@ -70,9 +71,10 @@ static CGFloat InfoViewHeight = 60;
     [self performSelector:@selector(closeInfoView) withObject:nil afterDelay:time];
 }
 
-+ (void)displayInfo:(NSString *)info for:(NSTimeInterval)time {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate.slidingInfoView displayInfo:info for:time];
++ (SlidingInfoView *)sharedSlidingInfoView {
+    if (!sharedInstance)
+        sharedInstance = [[SlidingInfoView alloc] init];
+    return sharedInstance;
 }
 
 @end
