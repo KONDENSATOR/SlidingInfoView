@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _items = [NSArray arrayWithObjects:@"Ett", @"Två", @"Tre", @"Fyra", @"Fem", @"Sex", nil];
+    _items = [NSArray arrayWithObjects:@"Apple", @"Banana", @"Cantaloupe", @"Durian", @"Egg plant", @"Fig", nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
