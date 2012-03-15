@@ -6,10 +6,11 @@
 //  Copyright (c) 2012 Kondensator. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@class SlidingInfoView;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) SlidingInfoView *slidingInfoView;
 
 @end

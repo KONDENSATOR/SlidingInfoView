@@ -14,7 +14,8 @@
 		5B2B396F1511E86C009A4ED8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B396E1511E86C009A4ED8 /* main.m */; };
 		5B2B39731511E86C009A4ED8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B39721511E86C009A4ED8 /* AppDelegate.m */; };
 		5B2B39761511E86C009A4ED8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2B39741511E86C009A4ED8 /* MainStoryboard.storyboard */; };
-		5B2B39791511E86C009A4ED8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B39781511E86C009A4ED8 /* ViewController.m */; };
+		5B2B39811511ED8D009A4ED8 /* SlidingInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B39801511ED8D009A4ED8 /* SlidingInfoView.m */; };
+		5B2B39851511F3B8009A4ED8 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2B39831511F3B8009A4ED8 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +23,17 @@
 		5B2B39621511E86C009A4ED8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5B2B39641511E86C009A4ED8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5B2B39661511E86C009A4ED8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5B2B396A1511E86C009A4ED8 /* InfoTest-Info.plist */ = {isa = PBXFileReference; path = "InfoTest-Info.plist"; sourceTree = "<group>"; };
+		5B2B396A1511E86C009A4ED8 /* InfoTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InfoTest-Info.plist"; sourceTree = "<group>"; };
 		5B2B396C1511E86C009A4ED8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5B2B396E1511E86C009A4ED8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5B2B39701511E86C009A4ED8 /* InfoTest-Prefix.pch */ = {isa = PBXFileReference; path = "InfoTest-Prefix.pch"; sourceTree = "<group>"; };
-		5B2B39711511E86C009A4ED8 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		5B2B39701511E86C009A4ED8 /* InfoTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InfoTest-Prefix.pch"; sourceTree = "<group>"; };
+		5B2B39711511E86C009A4ED8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5B2B39721511E86C009A4ED8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5B2B39751511E86C009A4ED8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		5B2B39771511E86C009A4ED8 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
-		5B2B39781511E86C009A4ED8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5B2B397F1511ED8D009A4ED8 /* SlidingInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingInfoView.h; sourceTree = "<group>"; };
+		5B2B39801511ED8D009A4ED8 /* SlidingInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingInfoView.m; sourceTree = "<group>"; };
+		5B2B39821511F3B8009A4ED8 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		5B2B39831511F3B8009A4ED8 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +83,11 @@
 				5B2B39711511E86C009A4ED8 /* AppDelegate.h */,
 				5B2B39721511E86C009A4ED8 /* AppDelegate.m */,
 				5B2B39741511E86C009A4ED8 /* MainStoryboard.storyboard */,
-				5B2B39771511E86C009A4ED8 /* ViewController.h */,
-				5B2B39781511E86C009A4ED8 /* ViewController.m */,
 				5B2B39691511E86C009A4ED8 /* Supporting Files */,
+				5B2B397F1511ED8D009A4ED8 /* SlidingInfoView.h */,
+				5B2B39801511ED8D009A4ED8 /* SlidingInfoView.m */,
+				5B2B39821511F3B8009A4ED8 /* TableViewController.h */,
+				5B2B39831511F3B8009A4ED8 /* TableViewController.m */,
 			);
 			path = InfoTest;
 			sourceTree = "<group>";
@@ -163,7 +168,8 @@
 			files = (
 				5B2B396F1511E86C009A4ED8 /* main.m in Sources */,
 				5B2B39731511E86C009A4ED8 /* AppDelegate.m in Sources */,
-				5B2B39791511E86C009A4ED8 /* ViewController.m in Sources */,
+				5B2B39811511ED8D009A4ED8 /* SlidingInfoView.m in Sources */,
+				5B2B39851511F3B8009A4ED8 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
