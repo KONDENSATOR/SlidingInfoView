@@ -9,13 +9,15 @@
 #import "SlidingInfoView.h"
 #import "AppDelegate.h"
 
-static CGFloat InfoViewHeight = 60;
+static CGFloat InfoViewHeight = 50;
 static SlidingInfoView *sharedInstance;
 
 @implementation SlidingInfoView {
     // _measureView is transparent and resized with sole purpose to keep track of size changes (rotations)
-    UIView *_measureView, *_sibling, *_infoView;
+    UIView *_measureView, *_sibling;
+    UIImageView *_infoView;
     UITextView *_textView;
+    BOOL openStatus;
 }
 
 - (void)setInfoViewOpen:(BOOL)isOpen {
@@ -31,14 +33,17 @@ static SlidingInfoView *sharedInstance;
 }
 
 - (void) generateInfoView {
-    _infoView = [[UIView alloc] init];
+    
+    _infoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fotifier_background.png"]];
     [self setInfoViewOpen:NO];
     _infoView.backgroundColor = [UIColor grayColor];
+    
     _infoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     _textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, _infoView.frame.size.width-20, InfoViewHeight)];
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _textView.backgroundColor = [UIColor clearColor];
-    _textView.font = [UIFont boldSystemFontOfSize:InfoViewHeight/2];
+    _textView.font = [UIFont boldSystemFontOfSize:24]; //[UIFont boldSystemFontOfSize:InfoViewHeight/2];
+    _textView.textColor = [UIColor darkGrayColor];
     [_infoView addSubview:_textView];
 }
 
@@ -54,10 +59,13 @@ static SlidingInfoView *sharedInstance;
 }
 
 - (void)setIsOpen:(BOOL)isOpen {
-    [UIView beginAnimations:@"ToggleInfoView" context:nil];
-    [self setSiblingOpen:isOpen];
-    [self setInfoViewOpen:isOpen];
-    [UIView commitAnimations];
+    if (isOpen != openStatus) {
+        openStatus = isOpen;
+        [UIView beginAnimations:@"ToggleInfoView" context:nil];
+        [self setSiblingOpen:isOpen];
+        [self setInfoViewOpen:isOpen];
+        [UIView commitAnimations];
+    }
 }
 
 - (void)closeInfoView {
@@ -68,7 +76,10 @@ static SlidingInfoView *sharedInstance;
     _textView.text = info;
     [self setIsOpen:YES];
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(closeInfoView) object:nil];
-    [self performSelector:@selector(closeInfoView) withObject:nil afterDelay:time];
+    
+    if(time > 0) {
+        [self performSelector:@selector(closeInfoView) withObject:nil afterDelay:time];    
+    }
 }
 
 + (SlidingInfoView *)sharedSlidingInfoView {
